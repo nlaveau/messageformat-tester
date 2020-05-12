@@ -123,6 +123,13 @@
               "devServerTarget": "messageformat-tester:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://nlaveau.github.io/messageformat-tester/",
+            "name": "Nicolas Laveau"
+          }
         }
       }
     }
