@@ -1,0 +1,16 @@
+<div [formGroup]="form">
+    <mat-form-field *ngIf="variable.type === 'select'" >
+        <mat-label>{{ variable.name }} [ {{ variable.type }} ]</mat-label>
+        <mat-select [formControlName]="variable.name">
+            <mat-option *ngFor="let val of variable.values" [value]="val">{{ val }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="variable.type === 'number'" >
+        <mat-label>{{ variable.name }} [ {{ variable.type }} ]</mat-label>
+        <input matInput [formControlName]="variable.name" type="number" />
+    </mat-form-field>
+    <mat-form-field *ngIf="variable.type === 'string'">
+        <mat-label>{{ variable.name }} [ {{ variable.type }} ]</mat-label>
+        <input matInput [formControlName]="variable.name" />
+    </mat-form-field>
+</div>

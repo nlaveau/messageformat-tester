@@ -1,0 +1,41 @@
+<form [formGroup]="messageForm" novalidate>
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Your Message</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field>
+            <mat-select placeholder="Destination language" formControlName="language">
+              <mat-option *ngFor="let language of languages" [value]="language">{{ language }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-checkbox formControlName="useSourceMessage">
+              Compare with source message
+            </mat-checkbox>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea class="mf-message" matInput placeholder="Translated message" formControlName="destinationMessage"></textarea>
+            <mat-error *ngIf="messageForm.controls['destinationMessage'].hasError('required')">
+              Translated message is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row"></div>
+      <div class="row" *ngIf="useSourceMessage">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea class="mf-message" matInput placeholder="Original message" formControlName="sourceMessage"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

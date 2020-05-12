@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MessageInfo } from './models/message-info';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'messageformat-tester';
+  public title = 'messageformat-tester';
+  public lang = 'fr';
+
+  public vars = { no: 1 };
+
+  public message: MessageInfo = {
+    language: 'en',
+    destinationMessage: '',
+    useSourceMessage: false,
+    sourceMessage: undefined
+  };
+
+  public updateVars(variables: any) {
+    this.vars = variables;
+  }
+
+  onMessageChange(messageFormResult) {
+    this.message = messageFormResult;
+  }
+
+  $onInit() {
+  }
 }

@@ -1,0 +1,46 @@
+.board {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-card-content {
+    flex-grow: 1;
+    padding: 10px;
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+}
+
+.punctuation {
+    font-weight: bold;
+    color: orange
+}
+
+.pluralcase {
+    font-weight: bold;
+    color: cyan;
+}
+
+.selectcase {
+    font-weight: bold;
+    color: lightblue;
+}
+
+.keyword {
+    font-weight: bold;
+    color: green;
+}
+
+.variable {
+    font-weight: bold;
+    color: orangered
+}
+
+.text {
+    color: white;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
