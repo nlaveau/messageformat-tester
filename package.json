@@ -24,7 +24,7 @@
     "@angular/platform-browser-dynamic": "~9.1.6",
     "@angular/router": "~9.1.6",
     "@types/lodash": "^4.14.150",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "make-plural": "^6.2.1",
     "messageformat": "^2.3.0",
     "messageformat-parser": "^4.1.3",
