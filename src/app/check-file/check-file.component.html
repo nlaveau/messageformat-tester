@@ -1,0 +1,11 @@
+<div>
+  <app-file-upload-form
+    (fileChange)="onFileChange($event)"
+  ></app-file-upload-form>
+</div>
+<div>
+  <app-check-file-result
+    [parseErrors]="fileParseErrors"
+    [fileInfo]="fileInfo"
+  ></app-check-file-result>
+</div>

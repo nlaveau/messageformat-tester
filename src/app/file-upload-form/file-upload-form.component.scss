@@ -1,0 +1,13 @@
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.prefix-chip-list {
+  width: 100%;
+}

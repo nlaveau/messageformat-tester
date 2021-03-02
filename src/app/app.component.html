@@ -1,30 +1,35 @@
-<div>
-  <div class="row">
-    <div class="col">
-      <app-message-form
-        (messageChange)="onMessageChange($event)"
-      ></app-message-form>
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab label="Check Message">
+    <div class="row">
+      <div class="col">
+        <app-message-form
+          (messageChange)="onMessageChange($event)"
+        ></app-message-form>
+      </div>
+      <div class="col">
+        <app-parsing-result
+          [message]="message.destinationMessage"
+          [lang]="message.language"
+        ></app-parsing-result>
+      </div>
     </div>
-    <div class="col">
-      <app-parsing-result
-        [message]="message.destinationMessage"
-        [lang]="message.language"
-      ></app-parsing-result>
+    <div class="row">
+      <div class="col">
+        <app-variables-form
+          [message]="message"
+          (vars)="updateVars($event)"
+        ></app-variables-form>
+      </div>
+      <div class="col">
+        <app-translation-result
+          [message]="message.destinationMessage"
+          [vars]="vars"
+          [lang]="message.language"
+        ></app-translation-result>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <app-variables-form
-        [message]="message"
-        (vars)="updateVars($event)"
-      ></app-variables-form>
-    </div>
-    <div class="col">
-      <app-translation-result
-        [message]="message.destinationMessage"
-        [vars]="vars"
-        [lang]="message.language"
-      ></app-translation-result>
-    </div>
-  </div>
-</div>
+  </mat-tab>
+  <mat-tab label="Check File">
+    <app-check-file></app-check-file>
+  </mat-tab>
+</mat-tab-group>
