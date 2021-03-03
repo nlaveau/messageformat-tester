@@ -1,12 +1,15 @@
 <mat-card class="board">
-    <mat-card-header>
-      <mat-card-title>Syntax and errors</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <div class="board">
-            <div><span [class]="token.type" *ngFor="let token of analysis.tokens">{{ token.value }}</span></div>
-            <div *ngIf="analysis.error" class="error">{{ analysis.error }}</div>
-        </div>
-    </mat-card-content>
+  <mat-card-header>
+    <mat-card-title>Syntax and errors</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="board">
+      <div>
+        <span [class]="token.type" *ngFor="let token of analysis.tokens">{{
+          token.value
+        }}</span>
+      </div>
+      <div *ngIf="analysis.error" class="error">{{ analysis.error }}</div>
+    </div>
+  </mat-card-content>
 </mat-card>
-

@@ -16,7 +16,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +23,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     ParsingResultComponent,
     VariableFormComponent,
     VariablesFormComponent,
-    MessageFormComponent,
+    MessageFormComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +35,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatSelectModule,
     MatRadioModule,
     MatCheckboxModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

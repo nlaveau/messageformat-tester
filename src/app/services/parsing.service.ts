@@ -2,18 +2,32 @@ import { Injectable } from '@angular/core';
 import { parse } from 'messageformat-parser';
 import * as PluralCategories from 'make-plural/pluralCategories';
 
-import { Token, Select, SelectCase, Plural, PluralCase, Argument } from '../models/messageformat-tokens';
+import {
+  Token,
+  Select,
+  SelectCase,
+  Plural,
+  PluralCase,
+  Argument
+} from '../models/messageformat-tokens';
 
-type MFTokenType = 'punctuation' | 'pluralcase' | 'selectcase' | 'keyword' | 'variable' | 'text' | 'error';
+type MFTokenType =
+  | 'punctuation'
+  | 'pluralcase'
+  | 'selectcase'
+  | 'keyword'
+  | 'variable'
+  | 'text'
+  | 'error';
 
 interface MFToken {
   type: MFTokenType;
   value: string;
 }
 
-const OPEN_BRACKET: MFToken = { type: 'punctuation', value: '{'};
-const CLOSE_BRACKET: MFToken = { type: 'punctuation', value: '}'};
-const COMMA: MFToken = { type: 'punctuation', value: ','};
+const OPEN_BRACKET: MFToken = { type: 'punctuation', value: '{' };
+const CLOSE_BRACKET: MFToken = { type: 'punctuation', value: '}' };
+const COMMA: MFToken = { type: 'punctuation', value: ',' };
 
 export interface MFTokenizationResult {
   tokens: MFToken[];
@@ -24,8 +38,7 @@ export interface MFTokenizationResult {
   providedIn: 'root'
 })
 export class ParsingService {
-
-  constructor() { }
+  constructor() {}
 
   private getLocale(lang: string) {
     return {
@@ -34,9 +47,9 @@ export class ParsingService {
     };
   }
 
-  private unparseToken(token: Token|Token[]): MFToken[] {
+  private unparseToken(token: Token | Token[]): MFToken[] {
     if (Array.isArray(token)) {
-      return token.flatMap((t) => this.unparseToken(t));
+      return token.flatMap(t => this.unparseToken(t));
     }
     if (typeof token === 'string') {
       return [{ type: 'text', value: token }];
@@ -61,12 +74,16 @@ export class ParsingService {
   }
 
   private unparsePluralCase(token: PluralCase): MFToken[] {
-    const fixedKey = ['zero', 'one', 'two', 'few', 'many', 'other'].includes(token.key) ? token.key : `=${token.key}`;
+    const fixedKey = ['zero', 'one', 'two', 'few', 'many', 'other'].includes(
+      token.key
+    )
+      ? token.key
+      : `=${token.key}`;
     const a: MFToken[] = [
       { type: 'pluralcase', value: fixedKey },
       OPEN_BRACKET
     ];
-    const b = token.tokens.flatMap((tk) => this.unparseToken(tk));
+    const b = token.tokens.flatMap(tk => this.unparseToken(tk));
     return a.concat(b).concat([CLOSE_BRACKET]);
   }
 
@@ -75,7 +92,7 @@ export class ParsingService {
       { type: 'selectcase', value: token.key },
       OPEN_BRACKET
     ];
-    const b = token.tokens.flatMap((tk) => this.unparseToken(tk));
+    const b = token.tokens.flatMap(tk => this.unparseToken(tk));
     return a.concat(b).concat([CLOSE_BRACKET]);
   }
 
@@ -87,7 +104,9 @@ export class ParsingService {
       { type: 'keyword', value: token.type },
       COMMA
     ];
-    const b: MFToken[] = token.cases.flatMap((aCase) => this.unparsePluralCase(aCase));
+    const b: MFToken[] = token.cases.flatMap(aCase =>
+      this.unparsePluralCase(aCase)
+    );
     return a.concat(b).concat([CLOSE_BRACKET]);
   }
 
@@ -99,7 +118,9 @@ export class ParsingService {
       { type: 'keyword', value: token.type },
       COMMA
     ];
-    const b: MFToken[] = token.cases.flatMap((aCase) => this.unparseSelectCase(aCase));
+    const b: MFToken[] = token.cases.flatMap(aCase =>
+      this.unparseSelectCase(aCase)
+    );
     const c: MFToken[] = [CLOSE_BRACKET];
     return a.concat(b).concat(c);
   }
@@ -107,7 +128,7 @@ export class ParsingService {
   private rematchTokens(message: string, tokens: MFToken[]): MFToken[] {
     const result = [];
     let m = message;
-    tokens.forEach((token) => {
+    tokens.forEach(token => {
       const index = m.indexOf(token.value);
       const cutPoint = index + token.value.length;
       result.push({
@@ -121,25 +142,23 @@ export class ParsingService {
 
   tokenize(message: string, lang: string): MFTokenizationResult {
     try {
-      const parsedArray: Token|Token[] = parse(message, this.getLocale(lang));
+      const parsedArray: Token | Token[] = parse(message, this.getLocale(lang));
       const tokens = this.unparseToken(parsedArray);
       const ftokens = this.rematchTokens(message, tokens);
       return { tokens: ftokens };
-    }
-    catch (parsingError) {
+    } catch (parsingError) {
       let tokens: MFToken[];
       let error;
       if (parsingError.location) {
         const start = parsingError.location.start.offset;
-        const end  = parsingError.location.end.offset;
+        const end = parsingError.location.end.offset;
         tokens = [
-          { type: 'text', value: message.slice(0, start)},
-          { type: 'error', value: message.slice(start, end)},
-          { type: 'text', value: message.slice(end)}
+          { type: 'text', value: message.slice(0, start) },
+          { type: 'error', value: message.slice(start, end) },
+          { type: 'text', value: message.slice(end) }
         ];
         error = parsingError.message;
-      }
-      else {
+      } else {
         tokens = [{ type: 'text', value: message }];
         error = parsingError.toString();
       }

@@ -8,9 +8,8 @@ describe('ParsingResultComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ParsingResultComponent ]
-    })
-    .compileComponents();
+      declarations: [ParsingResultComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

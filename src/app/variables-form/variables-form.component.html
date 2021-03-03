@@ -1,18 +1,25 @@
 <form [formGroup]="variableForm">
-    <mat-card class="shipping-card">
-        <mat-card-header>
-          <mat-card-title>Variables</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-    
-    <div *ngFor="let mfVar of mfVars; trackBy: trackFn">
-        <app-variable-form [variable]="mfVar" [form]="variableForm"></app-variable-form>
-    </div>
-    <div *ngIf="message.useSourceMessage">
-        <div *ngFor="let error of comparison.errors"><span class="variable-name">{{ error.name }}</span>: <span class="error">{{ error.message }}</span></div>
-        <div *ngFor="let warning of comparison.warnings"><span class="variable-name">{{ warning.name }}</span>: <span class="warning">{{ warning.message }}</span></div>
-    </div>
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Variables</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div *ngFor="let mfVar of mfVars; trackBy: trackFn">
+        <app-variable-form
+          [variable]="mfVar"
+          [form]="variableForm"
+        ></app-variable-form>
+      </div>
+      <div *ngIf="message.useSourceMessage">
+        <div *ngFor="let error of comparison.errors">
+          <span class="variable-name">{{ error.name }}</span
+          >: <span class="error">{{ error.message }}</span>
+        </div>
+        <div *ngFor="let warning of comparison.warnings">
+          <span class="variable-name">{{ warning.name }}</span
+          >: <span class="warning">{{ warning.message }}</span>
+        </div>
+      </div>
     </mat-card-content>
-</mat-card>
-
+  </mat-card>
 </form>

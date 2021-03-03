@@ -27,6 +27,5 @@ export class AppComponent {
     this.message = messageFormResult;
   }
 
-  $onInit() {
-  }
+  $onInit() {}
 }

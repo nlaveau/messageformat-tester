@@ -6,9 +6,20 @@ import * as Categories from 'make-plural/pluralCategories';
 })
 export class LanguageService {
   //private static LANGUAGES: string[] = Object.keys(Categories).filter((cat) => cat !== '_in');
-  private static LANGUAGES: string[] = ['de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'nl', 'pt', 'ru'];
+  private static LANGUAGES: string[] = [
+    'de',
+    'en',
+    'es',
+    'fr',
+    'it',
+    'ja',
+    'ko',
+    'nl',
+    'pt',
+    'ru'
+  ];
 
-  constructor() { }
+  constructor() {}
 
   getLang() {
     return LanguageService.LANGUAGES;

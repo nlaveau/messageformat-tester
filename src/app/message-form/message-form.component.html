@@ -7,22 +7,38 @@
       <div class="row">
         <div class="col">
           <mat-form-field>
-            <mat-select placeholder="Destination language" formControlName="language">
-              <mat-option *ngFor="let language of languages" [value]="language">{{ language }}</mat-option>
+            <mat-select
+              placeholder="Destination language"
+              formControlName="language"
+            >
+              <mat-option
+                *ngFor="let language of languages"
+                [value]="language"
+                >{{ language }}</mat-option
+              >
             </mat-select>
           </mat-form-field>
         </div>
         <div class="col">
-            <mat-checkbox formControlName="useSourceMessage">
-              Compare with source message
-            </mat-checkbox>
+          <mat-checkbox formControlName="useSourceMessage">
+            Compare with source message
+          </mat-checkbox>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <textarea class="mf-message" matInput placeholder="Translated message" formControlName="destinationMessage"></textarea>
-            <mat-error *ngIf="messageForm.controls['destinationMessage'].hasError('required')">
+            <textarea
+              class="mf-message"
+              matInput
+              placeholder="Translated message"
+              formControlName="destinationMessage"
+            ></textarea>
+            <mat-error
+              *ngIf="
+                messageForm.controls['destinationMessage'].hasError('required')
+              "
+            >
               Translated message is <strong>required</strong>
             </mat-error>
           </mat-form-field>
@@ -32,7 +48,12 @@
       <div class="row" *ngIf="useSourceMessage">
         <div class="col">
           <mat-form-field class="full-width">
-            <textarea class="mf-message" matInput placeholder="Original message" formControlName="sourceMessage"></textarea>
+            <textarea
+              class="mf-message"
+              matInput
+              placeholder="Original message"
+              formControlName="sourceMessage"
+            ></textarea>
           </mat-form-field>
         </div>
       </div>

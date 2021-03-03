@@ -15,7 +15,7 @@ describe('MessageFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MessageFormComponent ],
+      declarations: [MessageFormComponent],
       imports: [
         NoopAnimationsModule,
         ReactiveFormsModule,
@@ -23,7 +23,7 @@ describe('MessageFormComponent', () => {
         MatCardModule,
         MatInputModule,
         MatRadioModule,
-        MatSelectModule,
+        MatSelectModule
       ]
     }).compileComponents();
   }));
