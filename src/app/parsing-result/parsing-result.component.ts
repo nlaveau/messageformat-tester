@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { ParsingService, MFTokenizationResult } from '../services/parsing.service';
+import {
+  ParsingService,
+  MFTokenizationResult
+} from '../services/parsing.service';
 
 @Component({
   selector: 'app-parsing-result',
@@ -7,7 +10,6 @@ import { ParsingService, MFTokenizationResult } from '../services/parsing.servic
   styleUrls: ['./parsing-result.component.scss']
 })
 export class ParsingResultComponent implements OnInit, OnChanges {
-
   @Input()
   public message: string;
 
@@ -18,8 +20,7 @@ export class ParsingResultComponent implements OnInit, OnChanges {
 
   constructor(private parsingService: ParsingService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngOnChanges() {
     this.analysis = this.parsingService.tokenize(this.message, this.lang);

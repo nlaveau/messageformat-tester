@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ParsingResultComponent } from './parsing-result.component';
+import { CheckFileComponent } from './check-file.component';
 
-describe('ParsingResultComponent', () => {
-  let component: ParsingResultComponent;
-  let fixture: ComponentFixture<ParsingResultComponent>;
+describe('CheckFileComponent', () => {
+  let component: CheckFileComponent;
+  let fixture: ComponentFixture<CheckFileComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ParsingResultComponent]
+      declarations: [CheckFileComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ParsingResultComponent);
+    fixture = TestBed.createComponent(CheckFileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

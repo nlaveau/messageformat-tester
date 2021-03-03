@@ -11,16 +11,18 @@ export interface TranslationResult {
   providedIn: 'root'
 })
 export class TranslationService {
+  constructor() {}
 
-  constructor() { }
-
-  public interpolate(message: string, language: string, variables: MessageVariables) {
+  public interpolate(
+    message: string,
+    language: string,
+    variables: MessageVariables
+  ) {
     try {
       const messageFun = new MessageFormat(language).compile(message);
       const translation = messageFun(variables);
       return { translation };
-    }
-    catch (e) {
+    } catch (e) {
       const error = e.toString();
       return { error };
     }

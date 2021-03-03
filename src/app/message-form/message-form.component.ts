@@ -23,8 +23,11 @@ export class MessageFormComponent {
   @Output()
   public messageChange = new EventEmitter<MessageInfo>();
 
-  constructor(private fb: FormBuilder, private languageService: LanguageService) {
-    this.messageForm.valueChanges.subscribe((v) => {
+  constructor(
+    private fb: FormBuilder,
+    private languageService: LanguageService
+  ) {
+    this.messageForm.valueChanges.subscribe(v => {
       this.useSourceMessage = v.useSourceMessage;
       if (this.messageForm.valid) {
         this.messageChange.emit(v);

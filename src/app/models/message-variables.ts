@@ -1,3 +1,3 @@
 export interface MessageVariables {
-    [key: string]: string|number;
+  [key: string]: string | number;
 }

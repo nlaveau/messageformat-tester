@@ -14,14 +14,15 @@ export class VariableFormComponent implements OnInit {
   @Input()
   form: FormGroup;
 
-    constructor() {
-    }
+  constructor() {}
 
   ngOnInit(): void {
-//    console.log('adding variableform', this.form);
-//    this.form.registerControl(this.variable.name, new FormControl(''));
-//    console.log('registered');
+    //    console.log('adding variableform', this.form);
+    //    this.form.registerControl(this.variable.name, new FormControl(''));
+    //    console.log('registered');
   }
 
-  get isValid() { return this.form.controls[this.variable.name].valid; }
+  get isValid() {
+    return this.form.controls[this.variable.name].valid;
+  }
 }

@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ParsingResultComponent } from './parsing-result.component';
+import { FileUploadFormComponent } from './file-upload-form.component';
 
-describe('ParsingResultComponent', () => {
-  let component: ParsingResultComponent;
-  let fixture: ComponentFixture<ParsingResultComponent>;
+describe('FileUploadFormComponent', () => {
+  let component: FileUploadFormComponent;
+  let fixture: ComponentFixture<FileUploadFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ParsingResultComponent]
+      declarations: [FileUploadFormComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ParsingResultComponent);
+    fixture = TestBed.createComponent(FileUploadFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
