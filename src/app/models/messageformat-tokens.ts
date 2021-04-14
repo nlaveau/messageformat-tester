@@ -1,4 +1,4 @@
-export type Token = string | Argument | Plural | Select;
+export type Token = string | Argument | Plural | Select | Octothorpe;
 
 export type Argument = {
   type: 'argument';
@@ -16,6 +16,10 @@ export type Select = {
   type: 'select';
   arg: Identifier;
   cases: SelectCase[];
+};
+
+export type Octothorpe = {
+  type: 'octothorpe';
 };
 
 export type PluralCase = {

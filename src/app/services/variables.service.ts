@@ -57,6 +57,8 @@ export class VariablesService {
           this.extractVariableFromToken(aCase.tokens)
         );
         return c.concat(d);
+      case 'octothorpe':
+        return [];
     }
   }
 
