@@ -45,7 +45,8 @@ export class ParsingService {
   private getLocale(lang: string) {
     return {
       cardinal: PluralCategories[lang].cardinal,
-      ordinal: PluralCategories[lang].ordinal
+      ordinal: PluralCategories[lang].ordinal,
+      strict: true
     };
   }
 
