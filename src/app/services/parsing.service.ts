@@ -9,7 +9,8 @@ import {
   Plural,
   PluralCase,
   Argument,
-  Octothorpe
+  Octothorpe,
+  MFFunction
 } from '../models/messageformat-tokens';
 
 type MFTokenType =
@@ -17,8 +18,10 @@ type MFTokenType =
   | 'pluralcase'
   | 'selectcase'
   | 'octothorpe'
+  | 'function'
   | 'keyword'
   | 'variable'
+  | 'parameter'
   | 'text'
   | 'error';
 
@@ -67,6 +70,8 @@ export class ParsingService {
         return this.unparseSelect(token);
       case 'octothorpe':
         return this.unparseOctothorpe(token);
+      case 'function':
+        return this.unparseFunction(token);
     }
   }
 
@@ -132,6 +137,22 @@ export class ParsingService {
 
   private unparseOctothorpe(token: Octothorpe): MFToken[] {
     return [{ type: 'octothorpe', value: '#' }];
+  }
+
+  private unparseFunction(token: MFFunction): MFToken[] {
+    const a: MFToken[] = [
+      OPEN_BRACKET,
+      { type: 'variable', value: token.arg },
+      COMMA,
+      { type: 'keyword', value: token.key }
+    ];
+    let b: MFToken[] = [];
+    if (token.param?.tokens && token.param.tokens.length > 0) {
+      b = [COMMA].concat(token.param.tokens.map(aToken =>
+        ({ type: 'parameter', value: aToken })
+      ));
+    }
+    return a.concat(b).concat([CLOSE_BRACKET]);
   }
 
   private rematchTokens(message: string, tokens: MFToken[]): MFToken[] {

@@ -1,8 +1,21 @@
-export type Token = string | Argument | Plural | Select | Octothorpe;
+export type Token = string | Argument | MFFunction | Plural | Select | Octothorpe;
 
 export type Argument = {
   type: 'argument';
   arg: Identifier;
+};
+
+export type MFFunction = {
+  type: 'function';
+  arg: Identifier;
+  key:
+    | 'number'
+    | 'date'
+    | 'time'
+    | 'duration',
+  param: {
+    tokens: Array<any>;
+  };
 };
 
 export type Plural = {
