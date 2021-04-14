@@ -63,7 +63,6 @@ export class FileUploadFormComponent {
   }
 
   remove(prefix: string): void {
-    console.log('prefix to remove is', prefix);
     const index = this.allowList.indexOf(prefix);
 
     if (index >= 0) {

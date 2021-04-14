@@ -17,9 +17,6 @@ export class VariableFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    //    console.log('adding variableform', this.form);
-    //    this.form.registerControl(this.variable.name, new FormControl(''));
-    //    console.log('registered');
   }
 
   get isValid() {
