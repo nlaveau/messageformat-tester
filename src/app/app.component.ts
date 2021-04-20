@@ -16,7 +16,8 @@ export class AppComponent {
     language: 'en',
     destinationMessage: '',
     useSourceMessage: false,
-    sourceMessage: undefined
+    sourceMessage: undefined,
+    sourceLanguage: 'en'
   };
 
   public updateVars(variables: any) {

@@ -24,12 +24,6 @@ export class VariablesFormComponent implements OnInit, OnChanges {
   @Input()
   message: MessageInfo;
 
-  @Input()
-  sourceMessage: string;
-
-  @Input()
-  useSourceMessage: boolean;
-
   @Output()
   vars = new EventEmitter<MessageVariables>();
 

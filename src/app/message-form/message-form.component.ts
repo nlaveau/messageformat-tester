@@ -15,6 +15,7 @@ export class MessageFormComponent {
 
   public messageForm = this.fb.group({
     language: [null, Validators.required],
+    sourceLanguage: null,
     sourceMessage: null,
     useSourceMessage: false,
     destinationMessage: [null, Validators.required]

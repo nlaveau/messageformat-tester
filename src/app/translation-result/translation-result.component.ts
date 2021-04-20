@@ -10,6 +10,7 @@ import {
   TranslationResult
 } from '../services/translation.service';
 import { MessageVariables } from '../models/message-variables';
+import { MessageInfo } from '../models/message-info';
 
 @Component({
   selector: 'app-translation-result',
@@ -18,15 +19,13 @@ import { MessageVariables } from '../models/message-variables';
 })
 export class TranslationResultComponent implements OnInit, OnChanges {
   @Input()
-  public message: string;
+  public message: MessageInfo;
 
   @Input()
   public vars: MessageVariables;
 
-  @Input()
-  public lang: string;
-
   public result: TranslationResult;
+  public sourceResult: TranslationResult;
 
   constructor(private translationService: TranslationService) {}
 
@@ -34,9 +33,16 @@ export class TranslationResultComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     this.result = this.translationService.interpolate(
-      this.message,
-      this.lang,
+      this.message.destinationMessage,
+      this.message.language,
       this.vars
     );
+    if (this.message.useSourceMessage) {
+      this.sourceResult = this.translationService.interpolate(
+        this.message.sourceMessage,
+        this.message.sourceLanguage,
+        this.vars
+      );
+    }
   }
 }

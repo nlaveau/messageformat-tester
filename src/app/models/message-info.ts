@@ -3,4 +3,5 @@ export interface MessageInfo {
   destinationMessage: string;
   useSourceMessage: boolean;
   sourceMessage?: string;
+  sourceLanguage?: string;
 }
