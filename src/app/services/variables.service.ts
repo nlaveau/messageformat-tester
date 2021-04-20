@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { parse } from 'messageformat-parser';
-import { uniq, groupBy } from 'lodash';
+import { uniq, groupBy } from 'lodash-es';
 
 import { Token } from '../models/messageformat-tokens';
 import { BrowserStack } from 'protractor/built/driverProviders';
