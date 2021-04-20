@@ -8,6 +8,7 @@ export interface MFVar {
   type: 'select' | 'number' | 'string' | 'datetime' | 'duration';
   name: string;
   values?: string[];
+  isUsed?: boolean;
 }
 
 interface MFVarReport {
@@ -39,7 +40,10 @@ export class VariablesService {
         return [{ type: 'string', name: token.arg }];
       case 'plural':
       case 'selectordinal':
-        const a: MFVar[] = [{ type: 'number', name: token.arg }];
+        const isUsed: boolean = token.cases.some(aCase =>
+          this.findVariableUse(aCase.tokens, token.arg, true)
+        );
+        const a: MFVar[] = [{ type: 'number', name: token.arg, isUsed }];
         const b: MFVar[] = token.cases.flatMap(aCase =>
           this.extractVariableFromToken(aCase.tokens)
         );
@@ -68,6 +72,33 @@ export class VariablesService {
           case 'number':
             return [{ type: 'number', name: token.arg }];
         }
+    }
+  }
+
+  private findVariableUse(
+    token: Token | Token[],
+    name: string,
+    sameCase: boolean
+  ): boolean {
+    if (Array.isArray(token)) {
+      return token.some(t => this.findVariableUse(t, name, sameCase));
+    }
+    if (typeof token === 'string') {
+      return false;
+    }
+    switch (token.type) {
+      case 'octothorpe':
+        return sameCase;
+      case 'argument':
+        return token.arg === name;
+      case 'function':
+        return false;
+      case 'select':
+      case 'plural':
+      case 'selectordinal':
+        return token.cases.some(aCase =>
+          this.findVariableUse(aCase.tokens, name, false)
+        );
     }
   }
 
@@ -235,9 +266,23 @@ export class VariablesService {
               'is a string variable in the source message, but is not used in a incompatible way in the destination message'
           });
           break;
+        case 'numbernumber':
+          if (aVar.isUsed !== bVar.isUsed) {
+            if (aVar.isUsed) {
+              result.warnings.push({
+                message:
+                  'is used inside the cases in the source message (either as itself or with a #), but is not used in the destination message'
+              });
+            } else {
+              result.warnings.push({
+                message:
+                  'is used inside the cases in the destination message (either as itself or with a #), but is not used in the source message'
+              });
+            }
+          }
+          break;
         case 'datetimedatetime':
         case 'durationduration':
-        case 'numbernumber':
         case 'stringstring':
         default:
           break;
