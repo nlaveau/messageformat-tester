@@ -15,13 +15,17 @@
     <mat-label>{{ variable.name }} [ {{ variable.type }} ]</mat-label>
     <input matInput [formControlName]="variable.name" />
   </mat-form-field>
-  <div *ngIf="variable.type === 'datetime'">TODO: Should be a datetimepicker</div>
+  <div *ngIf="variable.type === 'datetime'">
+    TODO: Should be a datetimepicker
+  </div>
   <mat-form-field *ngIf="variable.type === 'datetime'">
     <mat-label>{{ variable.name }} [ {{ variable.type }} ]</mat-label>
     <input matInput [formControlName]="variable.name" />
   </mat-form-field>
   <mat-form-field *ngIf="variable.type === 'duration'">
-    <mat-label>{{ variable.name }} [ {{ variable.type }} in seconds ]</mat-label>
+    <mat-label
+      >{{ variable.name }} [ {{ variable.type }} in seconds ]</mat-label
+    >
     <input matInput [formControlName]="variable.name" type="number" />
   </mat-form-field>
 </div>

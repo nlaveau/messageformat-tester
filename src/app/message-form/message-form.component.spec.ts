@@ -13,20 +13,22 @@ describe('MessageFormComponent', () => {
   let component: MessageFormComponent;
   let fixture: ComponentFixture<MessageFormComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [MessageFormComponent],
-      imports: [
-        NoopAnimationsModule,
-        ReactiveFormsModule,
-        MatButtonModule,
-        MatCardModule,
-        MatInputModule,
-        MatRadioModule,
-        MatSelectModule
-      ]
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [MessageFormComponent],
+        imports: [
+          NoopAnimationsModule,
+          ReactiveFormsModule,
+          MatButtonModule,
+          MatCardModule,
+          MatInputModule,
+          MatRadioModule,
+          MatSelectModule
+        ]
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MessageFormComponent);

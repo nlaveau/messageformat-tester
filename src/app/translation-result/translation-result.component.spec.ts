@@ -6,11 +6,13 @@ describe('TranslationResultComponent', () => {
   let component: TranslationResultComponent;
   let fixture: ComponentFixture<TranslationResultComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [TranslationResultComponent]
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [TranslationResultComponent]
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TranslationResultComponent);

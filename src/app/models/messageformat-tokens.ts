@@ -1,4 +1,10 @@
-export type Token = string | Argument | MFFunction | Plural | Select | Octothorpe;
+export type Token =
+  | string
+  | Argument
+  | MFFunction
+  | Plural
+  | Select
+  | Octothorpe;
 
 export type Argument = {
   type: 'argument';
@@ -8,11 +14,7 @@ export type Argument = {
 export type MFFunction = {
   type: 'function';
   arg: Identifier;
-  key:
-    | 'number'
-    | 'date'
-    | 'time'
-    | 'duration',
+  key: 'number' | 'date' | 'time' | 'duration';
   param: {
     tokens: Array<any>;
   };

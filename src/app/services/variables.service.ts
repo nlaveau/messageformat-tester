@@ -63,11 +63,11 @@ export class VariablesService {
         switch (token.key) {
           case 'date':
           case 'time':
-            return [{type: 'datetime', name: token.arg}];
+            return [{ type: 'datetime', name: token.arg }];
           case 'duration':
-            return [{type: 'duration', name: token.arg}];
+            return [{ type: 'duration', name: token.arg }];
           case 'number':
-            return [{type: 'number', name: token.arg}];
+            return [{ type: 'number', name: token.arg }];
         }
     }
   }
@@ -195,39 +195,45 @@ export class VariablesService {
         case 'datetimeduration':
         case 'datetimestring':
           result.errors.push({
-            message: 'is a date variable in the source message, but is not used like that in the destination message'
+            message:
+              'is a date variable in the source message, but is not used like that in the destination message'
           });
           break;
         case 'durationdatetime':
         case 'durationnumber':
         case 'datestring':
           result.errors.push({
-            message: 'is a duration variable in the source message, but is not used like that in the destination message'
+            message:
+              'is a duration variable in the source message, but is not used like that in the destination message'
           });
           break;
         case 'datetimenumber':
         case 'datetimeduration':
         case 'datetimestring':
           result.errors.push({
-            message: 'is a time variable in the source message, but is not used like that in the destination message'
+            message:
+              'is a time variable in the source message, but is not used like that in the destination message'
           });
           break;
         case 'numberdatetime':
         case 'numberduration':
           result.errors.push({
-            message: 'is a number variable in the source message, but is not used in a incompatible way in the destination message'
+            message:
+              'is a number variable in the source message, but is not used in a incompatible way in the destination message'
           });
           break;
         case 'selectdatetime':
         case 'selectduration':
           result.errors.push({
-            message: 'is a select variable in the source message, but is not used in a incompatible way in the destination message'
+            message:
+              'is a select variable in the source message, but is not used in a incompatible way in the destination message'
           });
           break;
         case 'stringdatetime':
         case 'stringduration':
           result.errors.push({
-            message: 'is a string variable in the source message, but is not used in a incompatible way in the destination message'
+            message:
+              'is a string variable in the source message, but is not used in a incompatible way in the destination message'
           });
           break;
         case 'datetimedatetime':

@@ -6,11 +6,13 @@ describe('FileUploadFormComponent', () => {
   let component: FileUploadFormComponent;
   let fixture: ComponentFixture<FileUploadFormComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [FileUploadFormComponent]
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [FileUploadFormComponent]
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FileUploadFormComponent);

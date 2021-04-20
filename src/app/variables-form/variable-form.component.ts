@@ -16,8 +16,7 @@ export class VariableFormComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   get isValid() {
     return this.form.controls[this.variable.name].valid;

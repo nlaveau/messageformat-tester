@@ -6,11 +6,13 @@ describe('ParsingResultComponent', () => {
   let component: ParsingResultComponent;
   let fixture: ComponentFixture<ParsingResultComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ParsingResultComponent]
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [ParsingResultComponent]
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ParsingResultComponent);

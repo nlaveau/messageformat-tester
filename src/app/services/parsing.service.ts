@@ -148,9 +148,9 @@ export class ParsingService {
     ];
     let b: MFToken[] = [];
     if (token.param?.tokens && token.param.tokens.length > 0) {
-      b = [COMMA].concat(token.param.tokens.map(aToken =>
-        ({ type: 'parameter', value: aToken })
-      ));
+      b = [COMMA].concat(
+        token.param.tokens.map(aToken => ({ type: 'parameter', value: aToken }))
+      );
     }
     return a.concat(b).concat([CLOSE_BRACKET]);
   }

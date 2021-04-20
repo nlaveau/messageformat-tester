@@ -6,11 +6,13 @@ describe('CheckFileResultComponent', () => {
   let component: CheckFileResultComponent;
   let fixture: ComponentFixture<CheckFileResultComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [CheckFileResultComponent]
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [CheckFileResultComponent]
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CheckFileResultComponent);
