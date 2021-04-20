@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ParsingResultComponent } from './parsing-result.component';
 
@@ -6,7 +6,7 @@ describe('ParsingResultComponent', () => {
   let component: ParsingResultComponent;
   let fixture: ComponentFixture<ParsingResultComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ParsingResultComponent]
     }).compileComponents();

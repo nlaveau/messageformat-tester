@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CheckFileComponent } from './check-file.component';
 
@@ -6,7 +6,7 @@ describe('CheckFileComponent', () => {
   let component: CheckFileComponent;
   let fixture: ComponentFixture<CheckFileComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [CheckFileComponent]
     }).compileComponents();
