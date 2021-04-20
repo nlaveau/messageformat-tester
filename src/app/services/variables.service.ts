@@ -3,7 +3,6 @@ import { parse } from 'messageformat-parser';
 import { uniq, groupBy } from 'lodash-es';
 
 import { Token } from '../models/messageformat-tokens';
-import { BrowserStack } from 'protractor/built/driverProviders';
 
 export interface MFVar {
   type: 'select' | 'number' | 'string' | 'datetime' | 'duration';
