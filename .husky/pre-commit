@@ -1,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx git-format-staged -f 'npx prettier --ignore-unknown --stdin-filepath "{}"' 'src/*.ts' 'src/*.js' 'src/*.html' 'src/*.json' 'src/*.scss'
