@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col">
+    <app-message-form
+      (messageChange)="onMessageChange($event)"
+    ></app-message-form>
+  </div>
+  <div class="col">
+    <app-parsing-result
+      [message]="message.destinationMessage"
+      [lang]="message.language"
+    ></app-parsing-result>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <app-variables-form
+      [message]="message"
+      (vars)="updateVars($event)"
+    ></app-variables-form>
+  </div>
+  <div class="col">
+    <app-translation-result
+      [message]="message"
+      [vars]="vars"
+    ></app-translation-result>
+  </div>
+</div>

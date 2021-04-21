@@ -21,6 +21,7 @@ import { MatTableModule } from '@angular/material/table';
 import { FileUploadFormComponent } from './file-upload-form/file-upload-form.component';
 import { CheckFileResultComponent } from './check-file-result/check-file-result.component';
 import { CheckFileComponent } from './check-file/check-file.component';
+import { CheckMessageComponent } from './check-message/check-message.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CheckFileComponent } from './check-file/check-file.component';
     MessageFormComponent,
     FileUploadFormComponent,
     CheckFileResultComponent,
-    CheckFileComponent
+    CheckFileComponent,
+    CheckMessageComponent
   ],
   imports: [
     BrowserModule,
