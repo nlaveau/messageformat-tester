@@ -1,9 +1,9 @@
-<mat-card>
+<mat-card [attr.data-test]="this['data-test']">
   <mat-card-header>
     <mat-card-title>File parse result</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <div *ngIf="parseErrors?.length > 0">
+    <div *ngIf="parseErrors?.length > 0" data-test="check-file-result--errors">
       <table mat-table [dataSource]="parseErrors" class="mat-elevation-z8">
         <ng-container matColumnDef="key">
           <th mat-header-cell *matHeaderCellDef>Key</th>
@@ -34,6 +34,12 @@
           Export as Excel
         </button>
       </div>
+    </div>
+    <div
+      *ngIf="parseErrors && parseErrors.length === 0"
+      data-test="check-file-result--no-errors-message"
+    >
+      ✅ Everything is okay, no format errors were found.
     </div>
   </mat-card-content>
 </mat-card>

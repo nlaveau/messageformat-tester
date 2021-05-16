@@ -1,4 +1,8 @@
-<form [formGroup]="fileUploadForm" novalidate>
+<form
+  [formGroup]="fileUploadForm"
+  novalidate
+  [attr.data-test]="this['data-test']"
+>
   <mat-card>
     <mat-card-header>
       <mat-card-title>Upload your file</mat-card-title>

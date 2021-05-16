@@ -23,6 +23,9 @@ export class FileUploadFormComponent {
   });
 
   @Output()
+  public submitFile = new EventEmitter<FileInfo>();
+
+  @Output()
   public fileChange = new EventEmitter<FileInfo>();
 
   constructor(
@@ -42,6 +45,7 @@ export class FileUploadFormComponent {
           fileContent: JSON.parse(reader.result.toString()),
           rawFile: file
         });
+        this.fileChange.emit(this.fileUploadForm.value);
       };
     }
   }
@@ -72,6 +76,6 @@ export class FileUploadFormComponent {
   }
 
   checkFileFormat() {
-    this.fileChange.emit(this.fileUploadForm.value);
+    this.submitFile.emit(this.fileUploadForm.value);
   }
 }
