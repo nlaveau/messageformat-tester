@@ -10,10 +10,16 @@ import { FileInfo } from '../models/file-info';
 })
 export class CheckFileResultComponent {
   displayedColumns: string[] = ['key', 'message', 'error'];
+  ['data-test']: string;
+
+  constructor(element: ElementRef) {
+    this['data-test'] = element.nativeElement.getAttribute('data-test');
+  }
 
   @Input()
   public parseErrors: FileParseError[];
 
+  @Input()
   @Input()
   public fileInfo: FileInfo;
 
