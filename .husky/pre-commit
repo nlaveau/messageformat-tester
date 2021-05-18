@@ -1,4 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 . "$(dirname "$0")/_/husky.sh"
 
-npx git-format-staged -f 'npx prettier --ignore-unknown --stdin-filepath "{}"' 'src/*.ts' 'src/*.js' 'src/*.html' 'src/*.json' 'src/*.scss'
+npx_version=$(npx --version)
+npx_version_major="${npx_version%%.*}"
+
+if [ "$npx_version_major" = "6" ]; then
+    ./node_modules/.bin/git-format-staged -f "npx prettier --config .prettierrc --stdin-filepath {}" "src/*.ts" "src/*.js" "src/*.html" "src/*.json" "src/*.scss";
+else
+    npx git-format-staged -f 'npx prettier --ignore-unknown --config .prettierrc --stdin-filepath "{}"' 'src/*.ts' 'src/*.js' 'src/*.html' 'src/*.json' 'src/*.scss';
+fi;
