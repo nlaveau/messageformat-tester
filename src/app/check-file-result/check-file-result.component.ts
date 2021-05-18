@@ -20,7 +20,6 @@ export class CheckFileResultComponent {
   public parseErrors: FileParseError[];
 
   @Input()
-  @Input()
   public fileInfo: FileInfo;
 
   exportAsExcel() {
