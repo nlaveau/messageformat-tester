@@ -14,6 +14,7 @@ export class FileUploadFormComponent {
   public readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   public languages = this.languageService.getLang();
   public allowList: string[] = ['CORE'];
+  file: File;
 
   public fileUploadForm = this.fb.group({
     language: [null, Validators.required],
@@ -41,6 +42,7 @@ export class FileUploadFormComponent {
       reader.readAsText(file, 'utf-8');
 
       reader.onload = () => {
+        this.file = file;
         this.fileUploadForm.patchValue({
           fileContent: JSON.parse(reader.result.toString()),
           rawFile: file

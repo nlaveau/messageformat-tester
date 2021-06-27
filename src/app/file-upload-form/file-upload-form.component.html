@@ -33,11 +33,25 @@
               accept=".json"
             />
             <button
+              class="fileUploadForm__button"
               mat-stroked-button
               color="primary"
               (click)="fileInput.click()"
+              [title]="file?.name || ''"
             >
-              Choose Translation File (JSON)
+              <div class="fileUploadForm__button-file" *ngIf="!file">
+                <span>Choose Translation File (JSON)</span>
+              </div>
+              <div class="fileUploadForm__button-file--loaded" *ngIf="file">
+                <span data-test="file-upload-form--filename">{{
+                  file?.name
+                }}</span>
+                <span
+                  class="mat-small"
+                  data-test="file-upload-form--upate-file-instruction"
+                  >Click to select a new file</span
+                >
+              </div>
             </button>
           </div>
           <div class="col">
