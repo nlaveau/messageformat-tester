@@ -5,11 +5,11 @@
   <mat-card-content>
     <div class="board">
       <div>
-        <span [class]="token.type" *ngFor="let token of analysis.tokens">{{
+        <span [class]="token.type" *ngFor="let token of analysis?.tokens">{{
           token.value
         }}</span>
       </div>
-      <div *ngIf="analysis.error" class="error">{{ analysis.error }}</div>
+      <div *ngIf="analysis?.error" class="error">{{ analysis?.error }}</div>
     </div>
   </mat-card-content>
 </mat-card>

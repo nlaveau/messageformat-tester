@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
 
 import { VariablesFormComponent } from './variables-form.component';
 
@@ -9,7 +10,8 @@ describe('VariablesFormComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [VariablesFormComponent]
+        declarations: [VariablesFormComponent],
+        providers: [FormBuilder]
       }).compileComponents();
     })
   );

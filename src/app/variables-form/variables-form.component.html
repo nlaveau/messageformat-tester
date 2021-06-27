@@ -10,7 +10,7 @@
           [form]="variableForm"
         ></app-variable-form>
       </div>
-      <div *ngIf="message.useSourceMessage">
+      <div *ngIf="message?.useSourceMessage">
         <div *ngFor="let error of comparison.errors">
           <span class="variable-name">{{ error.name }}</span
           >: <span class="error">{{ error.message }}</span>

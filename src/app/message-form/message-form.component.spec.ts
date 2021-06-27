@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -8,6 +8,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 
 import { MessageFormComponent } from './message-form.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 describe('MessageFormComponent', () => {
   let component: MessageFormComponent;
@@ -24,7 +25,8 @@ describe('MessageFormComponent', () => {
           MatCardModule,
           MatInputModule,
           MatRadioModule,
-          MatSelectModule
+          MatSelectModule,
+          MatCheckboxModule
         ]
       }).compileComponents();
     })

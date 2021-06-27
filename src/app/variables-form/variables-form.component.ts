@@ -67,7 +67,7 @@ export class VariablesFormComponent implements OnInit, OnChanges {
     });
     this.mfVars = newVars;
 
-    if (this.message.useSourceMessage) {
+    if (this.message?.useSourceMessage) {
       const sourceVars = this.variablesService.extractVariables(
         this.message.sourceMessage
       );
