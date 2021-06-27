@@ -5,13 +5,13 @@
   <mat-card-content>
     <p>
       <strong>Destination</strong>:
-      <span>{{ result.translation }}</span>
-      <span class="error">{{ result.error }}</span>
+      <span>{{ result?.translation }}</span>
+      <span class="error">{{ result?.error }}</span>
     </p>
-    <p *ngIf="!!message.useSourceMessage">
+    <p *ngIf="!!message?.useSourceMessage">
       <strong>Source</strong>:
-      <span>{{ sourceResult.translation }}</span>
-      <span class="error">{{ sourceResult.error }}</span>
+      <span>{{ sourceResult?.translation }}</span>
+      <span class="error">{{ sourceResult?.error }}</span>
     </p>
   </mat-card-content>
 </mat-card>

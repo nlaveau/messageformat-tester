@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
 
 import { FileUploadFormComponent } from './file-upload-form.component';
 
@@ -9,7 +10,8 @@ describe('FileUploadFormComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [FileUploadFormComponent]
+        declarations: [FileUploadFormComponent],
+        providers: [FormBuilder]
       }).compileComponents();
     })
   );

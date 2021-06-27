@@ -37,7 +37,7 @@ export class TranslationResultComponent implements OnInit, OnChanges {
       this.message.language,
       this.vars
     );
-    if (this.message.useSourceMessage) {
+    if (this.message?.useSourceMessage) {
       this.sourceResult = this.translationService.interpolate(
         this.message.sourceMessage,
         this.message.sourceLanguage,
